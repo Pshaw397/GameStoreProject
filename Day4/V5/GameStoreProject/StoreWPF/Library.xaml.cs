@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GameStoreBusiness;
 
 namespace StoreWPF
 {
@@ -19,14 +20,24 @@ namespace StoreWPF
     /// </summary>
     public partial class Library : Window
     {
+        private CRUD_GameMethods _gameManager = new CRUD_GameMethods();
         public Library()
         {
             InitializeComponent();
+            PopulateListBox();
+        }
+        private void PopulateListBox()
+        {
+            ListBoxGames.ItemsSource = _gameManager.RetrieveAll();
         }
 
         private void ListBoxGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (ListBoxGames.SelectedItem != null)
+            {
+                _gameManager.SetSelectedGame(ListBoxGames.SelectedItem.ToString());
+                PopulateGameFields();
+            }
         }
 
         private void Btn_Click(object sender, RoutedEventArgs e)
@@ -45,6 +56,28 @@ namespace StoreWPF
                 App.Current.MainWindow = mainWindow;
                 this.Close();
                 mainWindow.Show();
+            }
+        }
+
+        private void PopulateGameFields()
+        {
+            if (_gameManager.gameUpdate != null)
+            {
+                gameNameBox.Text = _gameManager.gameUpdate.Name;
+                descriptionBox.Text = _gameManager.gameUpdate.Description;
+                publisherBox.Text = _gameManager.gameUpdate.Publisher;
+                releaseDateBox.Text = _gameManager.gameUpdate.ReleaseDate.ToString();
+                developerBox.Text = _gameManager.developerList[0];
+                genreBox.Text = _gameManager.genreList[0];
+                for (int i = 1; i < _gameManager.developerList.Count; i++)
+                {
+                    developerBox.Text += ", " + _gameManager.developerList[i];
+                }
+                for (int i = 1; i < _gameManager.genreList.Count; i++)
+                {
+                    genreBox.Text += ", " + _gameManager.genreList[i];
+                }
+
             }
         }
     }

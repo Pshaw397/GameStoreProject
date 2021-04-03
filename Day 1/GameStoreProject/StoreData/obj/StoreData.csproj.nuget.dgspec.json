@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Sparta training\\C#\\Individual Project\\GameStoreProject\\StoreData\\StoreData.csproj": {}
+    "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Day 1\\GameStoreProject\\StoreData\\StoreData.csproj": {}
   },
   "projects": {
-    "D:\\Sparta training\\C#\\Individual Project\\GameStoreProject\\StoreData\\StoreData.csproj": {
+    "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Day 1\\GameStoreProject\\StoreData\\StoreData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sparta training\\C#\\Individual Project\\GameStoreProject\\StoreData\\StoreData.csproj",
+        "projectUniqueName": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Day 1\\GameStoreProject\\StoreData\\StoreData.csproj",
         "projectName": "StoreData",
-        "projectPath": "D:\\Sparta training\\C#\\Individual Project\\GameStoreProject\\StoreData\\StoreData.csproj",
+        "projectPath": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Day 1\\GameStoreProject\\StoreData\\StoreData.csproj",
         "packagesPath": "C:\\Users\\Phill\\.nuget\\packages\\",
-        "outputPath": "D:\\Sparta training\\C#\\Individual Project\\GameStoreProject\\StoreData\\obj\\",
+        "outputPath": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Day 1\\GameStoreProject\\StoreData\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,22 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

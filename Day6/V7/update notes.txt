@@ -1,0 +1,5 @@
+Listbox display all genres and IDs
+
+Selected ID and genres printed to corresponding textboxes
+
+textbox contents used for update parameters

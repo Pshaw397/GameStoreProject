@@ -1,0 +1,14 @@
+﻿<Window x:Class="StoreWPF.DevCrud"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StoreWPF"
+        mc:Ignorable="d"
+        Title="DevCrud" Height="550" Width="1000">
+    <Grid Background="#FF363131">
+        <ListBox x:Name="ListBoxGames" Background="#FF4F4F4F" Grid.Column="0" SelectionChanged="ListBox_SelectionChanged" Margin="0,0,699,0" FontSize="25" Foreground="White"/>
+        <TextBox x:Name="gameNameTxt" HorizontalAlignment="Left" Margin="445,96,0,0" Text="Game Name Here" TextWrapping="Wrap" VerticalAlignment="Top" Width="490" FontSize="35" Height="47" Background="{x:Null}" Foreground="White" BorderBrush="White"/>
+
+    </Grid>
+</Window>

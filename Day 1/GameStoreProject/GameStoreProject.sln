@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStoreBusiness", "GameStoreBusiness\GameStoreBusiness.csproj", "{4CFC1160-3565-42A6-860B-C71F8FE23B30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameStoreBusiness", "GameStoreBusiness\GameStoreBusiness.csproj", "{4CFC1160-3565-42A6-860B-C71F8FE23B30}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoreBusiness", "StoreBusiness", "{0FC9D785-F564-4018-A415-CE8818E81A3D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameStoreData", "GameStoreData", "{1846BE17-57DB-4D96-8E32-E33B79F2487D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoreData", "StoreData", "{1846BE17-57DB-4D96-8E32-E33B79F2487D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreData", "StoreData\StoreData.csproj", "{D5C26A7C-4519-4C57-8FC5-27650FF028D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreData", "StoreData\StoreData.csproj", "{D5C26A7C-4519-4C57-8FC5-27650FF028D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{59289027-5428-48F2-83B5-1977A1D258FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoreTests", "StoreTests", "{0EC08CE5-9806-4F61-9251-2A25244BB58B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{D5C26A7C-4519-4C57-8FC5-27650FF028D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5C26A7C-4519-4C57-8FC5-27650FF028D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5C26A7C-4519-4C57-8FC5-27650FF028D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59289027-5428-48F2-83B5-1977A1D258FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59289027-5428-48F2-83B5-1977A1D258FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59289027-5428-48F2-83B5-1977A1D258FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59289027-5428-48F2-83B5-1977A1D258FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4CFC1160-3565-42A6-860B-C71F8FE23B30} = {0FC9D785-F564-4018-A415-CE8818E81A3D}
 		{D5C26A7C-4519-4C57-8FC5-27650FF028D0} = {1846BE17-57DB-4D96-8E32-E33B79F2487D}
+		{59289027-5428-48F2-83B5-1977A1D258FC} = {0EC08CE5-9806-4F61-9251-2A25244BB58B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C1268205-63F7-4D72-8A34-56D398AB9140}

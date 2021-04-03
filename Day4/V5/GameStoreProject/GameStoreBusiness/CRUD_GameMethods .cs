@@ -8,6 +8,8 @@ namespace GameStoreBusiness
     public class CRUD_GameMethods
     {
         public Game gameUpdate { get; set; }
+        public List<string> developerList = new List<string>();
+        public List<string> genreList = new List<string>();
 
         public void Create(string name, string description, string coverIMG, decimal price, string publisher, int year, int month, int day)
         {
@@ -41,6 +43,53 @@ namespace GameStoreBusiness
                 gameUpdate.Price = price;
                 gameUpdate.Publisher = publisher;
                 db.SaveChanges();
+            }
+        }
+
+        public List<string> RetrieveAll()
+        {
+            using (var db = new GameMarketContext())
+            {
+                var gameNamesQuery = db.Games.ToList();
+                List<string> gameNameList = new List<string>();
+                foreach (var item in gameNamesQuery)
+                {
+                    gameNameList.Add(item.Name);
+                }
+                return gameNameList;
+            }
+        }
+
+        public void SetSelectedGame(string selectedItem)
+        {
+            developerList.Clear();
+            genreList.Clear();
+            using (var db = new GameMarketContext())
+            {
+                gameUpdate = db.Games.Where(g => g.Name == selectedItem).FirstOrDefault();
+                var joinedDeveloperTablesQuery =
+                    from g in db.Games
+                    join gd in db.GameDevelopers on g.GameId equals gd.GameId
+                    join d in db.Developers on gd.DeveloperId equals d.DeveloperId
+                    where gd.GameId == gameUpdate.GameId
+                    select new { developerName = d.DeveloperName };
+
+                foreach (var item in joinedDeveloperTablesQuery)
+                {
+                    developerList.Add(item.developerName);
+                }
+
+                var joinedGenreTableQuery =
+                    from g in db.Games
+                    join gg in db.GameGenres on g.GameId equals gg.GameId
+                    join ge in db.Genres on gg.GenreId equals ge.GenreId
+                    where gg.GameId == gameUpdate.GameId
+                    select new { genreName = ge.GenreName };
+
+                foreach (var item in joinedGenreTableQuery)
+                {
+                    genreList.Add(item.genreName);
+                }
             }
         }
     }
