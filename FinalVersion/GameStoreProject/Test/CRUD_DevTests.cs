@@ -17,7 +17,7 @@ namespace NorthwindTests
             {
                 var selectedDevs =
                 from c in db.Developers
-                where c.DeveloperName == "Ubisoft"
+                where c.DeveloperName == "Bioware"
                 select c;
 
                 var selectedDevs2 =
@@ -38,12 +38,12 @@ namespace NorthwindTests
         }
 
         [Test]
-        public void WhenANewDevIsAdded_TheNumberOfGamesIncreasesBy1()
+        public void WhenANewDevIsAdded_TheNumberOfDevsIncreasesBy1()
         {
             using (var db = new GameMarketContext())
             {
                 var numberOfDevsBefore = db.Developers.Count();
-                _crudMethods.Create("Ubisoft");
+                _crudMethods.Create("Bioware");
                 var numberOfDevsAfter = db.Developers.Count();
 
                 Assert.AreEqual(numberOfDevsBefore + 1, numberOfDevsAfter);
@@ -86,7 +86,7 @@ namespace NorthwindTests
             {
                 var selectedDevs =
                 from c in db.Developers
-                where c.DeveloperName == "Ubisoft"
+                where c.DeveloperName == "Bioware"
                 select c;
 
                 var selectedDevs2 =

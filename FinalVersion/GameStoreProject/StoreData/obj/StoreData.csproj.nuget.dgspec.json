@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Day8\\V10\\GameStoreProject\\StoreData\\StoreData.csproj": {}
+    "D:\\Sparta training\\C#\\Individual Project\\Project Files\\FinalVersion\\GameStoreProject\\StoreData\\StoreData.csproj": {}
   },
   "projects": {
-    "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Day8\\V10\\GameStoreProject\\StoreData\\StoreData.csproj": {
+    "D:\\Sparta training\\C#\\Individual Project\\Project Files\\FinalVersion\\GameStoreProject\\StoreData\\StoreData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Day8\\V10\\GameStoreProject\\StoreData\\StoreData.csproj",
+        "projectUniqueName": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\FinalVersion\\GameStoreProject\\StoreData\\StoreData.csproj",
         "projectName": "StoreData",
-        "projectPath": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Day8\\V10\\GameStoreProject\\StoreData\\StoreData.csproj",
+        "projectPath": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\FinalVersion\\GameStoreProject\\StoreData\\StoreData.csproj",
         "packagesPath": "C:\\Users\\Phill\\.nuget\\packages\\",
-        "outputPath": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Day8\\V10\\GameStoreProject\\StoreData\\obj\\",
+        "outputPath": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\FinalVersion\\GameStoreProject\\StoreData\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

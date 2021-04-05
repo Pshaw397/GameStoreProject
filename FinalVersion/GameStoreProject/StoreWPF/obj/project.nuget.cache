@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ae8Rhq7a8sMOq/fN+TSEY7+vrjuKXeHt3JYiNqb68jFiJ0KqODjZukS/va5+XbHS2R1tiMGxfPpwjhHIlPsHhQ==",
+  "dgSpecHash": "0bPTHgZc7dRKpzrJLsSVc96vUpW5b0YVoWqDL1JjeFQLRDp841wVvMBOfTrF4ogbxGER9lHyDFP1a1Bzq7A5rA==",
   "success": true,
-  "projectFilePath": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Day8\\V10\\GameStoreProject\\StoreWPF\\StoreWPF.csproj",
+  "projectFilePath": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\FinalVersion\\GameStoreProject\\StoreWPF\\StoreWPF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Phill\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Phill\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

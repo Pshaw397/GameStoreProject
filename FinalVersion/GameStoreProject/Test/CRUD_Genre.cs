@@ -22,12 +22,12 @@ namespace NorthwindTests
 
                 var selectedGenres2 =
                 from c in db.Genres
-                where c.GenreName == "Fighting"
+                where c.GenreName == "Adventure"
                 select c;
 
                 var selectedGenres3 =
                 from c in db.Genres
-                where c.GenreName == "Puzzle"
+                where c.GenreName == "Maze"
                 select c;
 
                 var selectedGenres4 =
@@ -48,7 +48,7 @@ namespace NorthwindTests
             using (var db = new GameMarketContext())
             {
                 var numberOfGenresBefore = db.Genres.Count();
-                _crudMethods.Create("Puzzle");
+                _crudMethods.Create("Maze");
                 var numberOfGenresAfter = db.Genres.Count();
 
                 Assert.AreEqual(numberOfGenresBefore + 1, numberOfGenresAfter);
@@ -77,10 +77,10 @@ namespace NorthwindTests
             {
                 _crudMethods.Create("FPS");
 
-                _crudMethods.Update("FPS", "Fighting");
+                _crudMethods.Update("FPS", "Adventure");
 
-                var updatedGenre = db.Genres.Where(g => g.GenreName == "Fighting").FirstOrDefault();
-                Assert.AreEqual("Fighting", updatedGenre.GenreName);
+                var updatedGenre = db.Genres.Where(g => g.GenreName == "Adventure").FirstOrDefault();
+                Assert.AreEqual("Adventure", updatedGenre.GenreName);
             }
         }
 
@@ -96,12 +96,12 @@ namespace NorthwindTests
 
                 var selectedGenres2 =
                 from c in db.Genres
-                where c.GenreName == "Fighting"
+                where c.GenreName == "Adventure"
                 select c;
 
                 var selectedGenres3 =
                 from c in db.Genres
-                where c.GenreName == "Puzzle"
+                where c.GenreName == "Maze"
                 select c;
 
                 var selectedGenres4 =
