@@ -64,11 +64,12 @@ namespace GameStoreBusiness
         {
             using (var db = new GameMarketContext())
             {
+                LibraryMethods libraryMethods = new LibraryMethods();
+                User selectedUser = libraryMethods.selectedUser();
                 var joinedPurchaseTablesQuery =
                     from p in db.Purchases
                     join g in db.Games on p.GameId equals g.GameId
-                    join u in db.Users on p.UserId equals u.UserId
-                    where p.GameId == g.GameId
+                    where p.UserId == selectedUser.UserId
                     select new { gameName = g.Name };
 
                 List<string> gameNameList = new List<string>();
@@ -82,14 +83,15 @@ namespace GameStoreBusiness
 
         public List<string> RetrieveAllStore(decimal userID)
         {
+            LibraryMethods libraryMethods = new LibraryMethods();
+            User selectedUser = libraryMethods.selectedUser();
             using (var db = new GameMarketContext())
             {
                 List<string> gameNameList = new List<string>();
                 var joinedPurchaseTablesQuery =
                     from p in db.Purchases
                     join g in db.Games on p.GameId equals g.GameId
-                    join u in db.Users on p.UserId equals u.UserId
-                    where p.GameId == g.GameId
+                    where p.UserId == selectedUser.UserId
                     select new { gameName = g.Name };
 
                 var gameNamesQuery = db.Games.ToList();

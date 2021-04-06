@@ -59,3 +59,5 @@ My goal for this sprint is to edit the documentation up to a higher standard and
 
 #### Class Diagram:
 ![class diagram](classDiagram2.png)
+
+[Link to Trello board](https://trello.com/b/ieQGAace/3-layer-project)
