@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="StoreData.User" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAIAAAQAAAQgAACAAAAACAAAAAAAAAAI=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Purchases" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="StoreData.Purchase" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAABAAAAAAAAIEAAAgAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Purchase.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Game" />
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StoreData.Game" Collapsed="true">
+    <Position X="7.25" Y="3.75" Width="1.5" />
+    <AssociationLine Name="GameGenres" Type="StoreData.GameGenre" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="4" />
+        <Point X="6.625" Y="4" />
+        <Point X="6.625" Y="5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQBoAAAACAEAAAQAAAAAAAAAAIAAAAAEAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="GameDevelopers" />
+      <Property Name="GameGenres" />
+      <Property Name="Purchases" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="StoreData.GameDeveloper" Collapsed="true">
+    <Position X="8.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAQAAIgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameDeveloper.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Developer" />
+      <Property Name="Game" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StoreData.Developer" Collapsed="true">
+    <Position X="10.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAgAEAAA=</HashCode>
+      <FileName>Developer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="GameDevelopers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="StoreData.GameGenre" Collapsed="true">
+    <Position X="6" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAMAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameGenre.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Genre" />
+      <Property Name="Game" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StoreData.Genre" Collapsed="true">
+    <Position X="3.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAIAAAAAAAAI=</HashCode>
+      <FileName>Genre.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="GameGenres" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
