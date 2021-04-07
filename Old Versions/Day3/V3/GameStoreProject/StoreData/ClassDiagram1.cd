@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="StoreData.User">
+    <Position X="9" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAgAAAAIAAAwAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StoreData.Purchase">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAACAAAAAAAAQAAoEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Purchases.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StoreData.Game">
+    <Position X="10.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAAAAAAEAAAABAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Games.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
