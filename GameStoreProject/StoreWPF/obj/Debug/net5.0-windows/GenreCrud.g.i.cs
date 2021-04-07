@@ -109,7 +109,7 @@ namespace StoreWPF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/StoreWPF;component/genrecrud.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/StoreWPF;V1.0.0.0;component/genrecrud.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\GenreCrud.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

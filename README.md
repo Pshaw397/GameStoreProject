@@ -45,19 +45,19 @@ My goal for this sprint is to edit the documentation up to a higher standard and
    on implementing a feature, try working on a separate feature and coming back to the feature I'm struggling with
 
 #### Trello board - End of Sprint 1:
-![trello board](TrelloBoard.png)
+![trello board](./Images/TrelloBoard.png)
 
 #### Trello board - Beginning of Sprint 2:
-![trello board](TrelloBoard2.png)
+![trello board](./Images/TrelloBoard2.png)
 
 #### Trello board - End of Sprint 2:
-![trello board](TrelloBoard3.png)
+![trello board](./Images/TrelloBoard3.png)
 
 #### User guide:
 -	When the project is opened, connection between the database and model has already been setup, so to start using the application all the user needs to do is run the application with the WPF project as the start-up project.
 -	From there the user can interact with the application as intended, first clicking on the “Create account” button to make an account for themselves, before navigating back to the login page where they can enter their account details and enter the application to access its full user features.
 
 #### Class Diagram:
-![class diagram](classDiagram2.png)
+![class diagram](./Images/classDiagram2.png)
 
 [Link to Trello board](https://trello.com/b/ieQGAace/3-layer-project)

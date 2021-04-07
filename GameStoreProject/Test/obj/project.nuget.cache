@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6tIV4VO4yPZ0dUQpkLodMEn5MHkIZSoiFaKjc75pv12eHUSaA6ucMIZfFgVFYgxk0W/9sFBf1tK3Ejplx+qRMQ==",
+  "dgSpecHash": "NZI1k90icvpZXr0MI5IOc7fwe90MWM5CfCV8Vuwy6CCbPXRL9dX0LZ3IncrVef5pcQ+lGt9cxd2TvigVQOwNAg==",
   "success": true,
-  "projectFilePath": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\Sprint2\\GameStoreProject\\Test\\Test.csproj",
+  "projectFilePath": "D:\\Sparta training\\C#\\Individual Project\\Project Files\\GameStoreProject\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Phill\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\Phill\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
