@@ -4,7 +4,7 @@ using GameStoreBusiness;
 using System.Linq;
 using System;
 
-namespace NorthwindTests
+namespace Test
 {
     public class GameGenreTests
     {
