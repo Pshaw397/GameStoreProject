@@ -1,5 +1,0 @@
-D:\Sparta training\C#\Individual Project\GameStoreProject\StoreBusiness\obj\Debug\net5.0-windows\StoreBusiness.csprojAssemblyReference.cache
-D:\Sparta training\C#\Individual Project\GameStoreProject\StoreBusiness\obj\Debug\net5.0-windows\MainWindow.g.cs
-D:\Sparta training\C#\Individual Project\GameStoreProject\StoreBusiness\obj\Debug\net5.0-windows\App.g.cs
-D:\Sparta training\C#\Individual Project\GameStoreProject\StoreBusiness\obj\Debug\net5.0-windows\StoreBusiness_MarkupCompile.cache
-D:\Sparta training\C#\Individual Project\GameStoreProject\StoreBusiness\obj\Debug\net5.0-windows\StoreBusiness_MarkupCompile.lref
