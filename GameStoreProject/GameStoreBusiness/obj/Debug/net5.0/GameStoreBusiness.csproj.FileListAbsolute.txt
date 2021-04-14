@@ -1205,10 +1205,10 @@ D:\Sparta training\C#\Individual Project\Project Files\Sprint2\GameStoreProject\
 D:\Sparta training\C#\Individual Project\Project Files\Sprint2\GameStoreProject\GameStoreBusiness\obj\Debug\net5.0\ref\GameStoreBusiness.dll
 D:\Sparta training\C#\Individual Project\Project Files\Sprint2\GameStoreProject\GameStoreBusiness\obj\Debug\net5.0\GameStoreBusiness.pdb
 D:\Sparta training\C#\Individual Project\Project Files\Sprint2\GameStoreProject\GameStoreBusiness\obj\Debug\net5.0\GameStoreBusiness.genruntimeconfig.cache
-D:\Sparta training\C#\Individual Project\Project Files\GameStoreProject\GameStoreBusiness\bin\Debug\net5.0\StoreData.exe
 D:\Sparta training\C#\Individual Project\Project Files\GameStoreProject\GameStoreBusiness\bin\Debug\net5.0\StoreData.deps.json
 D:\Sparta training\C#\Individual Project\Project Files\GameStoreProject\GameStoreBusiness\bin\Debug\net5.0\StoreData.runtimeconfig.json
 D:\Sparta training\C#\Individual Project\Project Files\GameStoreProject\GameStoreBusiness\bin\Debug\net5.0\StoreData.runtimeconfig.dev.json
+D:\Sparta training\C#\Individual Project\Project Files\GameStoreProject\GameStoreBusiness\bin\Debug\net5.0\StoreData.exe
 D:\Sparta training\C#\Individual Project\Project Files\GameStoreProject\GameStoreBusiness\bin\Debug\net5.0\GameStoreBusiness.exe
 D:\Sparta training\C#\Individual Project\Project Files\GameStoreProject\GameStoreBusiness\bin\Debug\net5.0\GameStoreBusiness.deps.json
 D:\Sparta training\C#\Individual Project\Project Files\GameStoreProject\GameStoreBusiness\bin\Debug\net5.0\GameStoreBusiness.runtimeconfig.json

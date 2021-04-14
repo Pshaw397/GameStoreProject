@@ -21,7 +21,7 @@ namespace GameStoreBusiness
             }
         }
 
-        public void Delete(int purchaseID)
+        public void Delete(decimal purchaseID)
         {
             using (var db = new GameMarketContext())
             {

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using System.Diagnostics;
+using StoreData.Services;
 
 namespace GameStoreBusiness
 {
@@ -10,107 +12,82 @@ namespace GameStoreBusiness
         public Game gameUpdate { get; set; }
         public List<string> developerList = new List<string>();
         public List<string> genreList = new List<string>();
+        public IGameServices _services;
+
+        public CRUD_GameMethods(IGameServices services)
+        {
+            _services = services;
+        }
+        public CRUD_GameMethods()
+        {
+            _services = new GameServices();
+        }
 
         public void Create(string name, string description, string coverIMG, decimal price, string publisher, int year, int month, int day)
         {
             Game newGame = new Game() { Name = name, Description = description, CoverImgPath = coverIMG, Price = price, Publisher = publisher, ReleaseDate = new DateTime(year, month, day) };
-            using (var db = new GameMarketContext())
-            {
-                db.Games.Add(newGame);
-                db.SaveChanges();
-            }
+            _services.CreateGame(newGame);
         }
 
         public void Delete(string name)
         {
-            using (var db = new GameMarketContext())
-            {
-                gameUpdate = db.Games.Where(c => c.Name == name).FirstOrDefault();
-                db.Games.Remove(gameUpdate);
-                db.SaveChanges();
-            }
+            gameUpdate = _services.GetGameByName(name);
+            _services.RemoveGame(gameUpdate);
         }
 
         public void Update(string nameID, string name, string description, string coverIMG, decimal price, string publisher, int year, int month, int day)
         {
-            using (var db = new GameMarketContext())
-            {
-                gameUpdate = db.Games.Where(c => c.Name == nameID).FirstOrDefault();
-                gameUpdate.Name = name;
-                gameUpdate.Description = description;
-                gameUpdate.CoverImgPath = coverIMG;
-                gameUpdate.ReleaseDate = new DateTime(year, month, day);
-                gameUpdate.Price = price;
-                gameUpdate.Publisher = publisher;
-                db.SaveChanges();
-            }
+            gameUpdate = _services.GetGameByName(name);
+            gameUpdate.Name = name;
+            gameUpdate.Description = description;
+            gameUpdate.CoverImgPath = coverIMG;
+            gameUpdate.ReleaseDate = new DateTime(year, month, day);
+            gameUpdate.Price = price;
+            gameUpdate.Publisher = publisher;
+            _services.SaveGameChanges();
         }
 
         public List<string> RetrieveAll()
         {
-            using (var db = new GameMarketContext())
+            List<Game> gameList = _services.GetGameList();
+            List<string> gameNameList = new List<string>();
+            foreach (var item in gameList)
             {
-                var gameNamesQuery = db.Games.ToList();
-                List<string> gameNameList = new List<string>();
-                foreach (var item in gameNamesQuery)
-                {
-                    gameNameList.Add(item.Name);
-                }
-                return gameNameList;
+                gameNameList.Add(item.Name);
             }
+            return gameNameList;
         }
 
         public List<string> RetrieveAllLibrary()
         {
-            using (var db = new GameMarketContext())
-            {
-                LibraryMethods libraryMethods = new LibraryMethods();
-                User selectedUser = libraryMethods.selectedUser();
-                var joinedPurchaseTablesQuery =
-                    from p in db.Purchases
-                    join g in db.Games on p.GameId equals g.GameId
-                    where p.UserId == selectedUser.UserId
-                    select new { gameName = g.Name };
-
-                List<string> gameNameList = new List<string>();
-                foreach (var item in joinedPurchaseTablesQuery)
-                {
-                    gameNameList.Add(item.gameName);
-                }
-                return gameNameList;
-            }
+            LibraryMethods libraryMethods = new LibraryMethods();
+            User selectedUser = libraryMethods.selectedUser();
+            return _services.GetLibraryGameList(selectedUser);
         }
 
         public List<string> RetrieveAllStore(decimal userID)
         {
             LibraryMethods libraryMethods = new LibraryMethods();
             User selectedUser = libraryMethods.selectedUser();
-            using (var db = new GameMarketContext())
-            {
-                List<string> gameNameList = new List<string>();
-                var joinedPurchaseTablesQuery =
-                    from p in db.Purchases
-                    join g in db.Games on p.GameId equals g.GameId
-                    where p.UserId == selectedUser.UserId
-                    select new { gameName = g.Name };
+            List<string> gameNameList = new List<string>();
+            List<string> PurchasedList = _services.GetLibraryGameList(selectedUser);
 
-                var gameNamesQuery = db.Games.ToList();
-                foreach (var item in gameNamesQuery)
+            List<Game> gameList = _services.GetGameList();
+            foreach (var item in gameList)
+            {
+                gameNameList.Add(item.Name);
+            }
+            foreach (var item2 in gameList)
+            {
+                foreach (var item3 in PurchasedList)
                 {
-                    gameNameList.Add(item.Name);
-                }
-                foreach (var item2 in gameNamesQuery)
-                {
-                    foreach (var item3 in joinedPurchaseTablesQuery)
+                    if(item2.Name == item3)
                     {
-                        if(item2.Name == item3.gameName)
-                        {
-                            gameNameList.Remove(item2.Name);
-                        }
+                        gameNameList.Remove(item2.Name);
                     }
                 }
-                return gameNameList;
             }
+            return gameNameList;
         }
 
         public void SetSelectedGame(string selectedItem)
@@ -119,29 +96,26 @@ namespace GameStoreBusiness
             genreList.Clear();
             using (var db = new GameMarketContext())
             {
-                gameUpdate = db.Games.Where(g => g.Name == selectedItem).FirstOrDefault();
-                var joinedDeveloperTablesQuery =
+                gameUpdate = _services.GetGameByName(selectedItem);
+                var joinedTablesQuery =
                     from g in db.Games
                     join gd in db.GameDevelopers on g.GameId equals gd.GameId
                     join d in db.Developers on gd.DeveloperId equals d.DeveloperId
-                    where gd.GameId == gameUpdate.GameId
-                    select new { developerName = d.DeveloperName };
-
-                foreach (var item in joinedDeveloperTablesQuery)
-                {
-                    developerList.Add(item.developerName);
-                }
-
-                var joinedGenreTableQuery =
-                    from g in db.Games
                     join gg in db.GameGenres on g.GameId equals gg.GameId
                     join ge in db.Genres on gg.GenreId equals ge.GenreId
-                    where gg.GameId == gameUpdate.GameId
-                    select new { genreName = ge.GenreName };
+                    where gd.GameId == gameUpdate.GameId
+                    select new { developerName = d.DeveloperName, genreName = ge.GenreName };
 
-                foreach (var item in joinedGenreTableQuery)
+                foreach (var item in joinedTablesQuery)
                 {
-                    genreList.Add(item.genreName);
+                    if(developerList.Contains(item.developerName) == false)
+                    {
+                        developerList.Add(item.developerName);
+                    }
+                    if (genreList.Contains(item.genreName) == false)
+                    {
+                        genreList.Add(item.genreName);
+                    }
                 }
             }
         }

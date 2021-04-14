@@ -19,7 +19,7 @@ namespace Test
             {
                 var selectedPurchase =
                 from c in db.Purchases
-                where c.PurchaseId == 1
+                where c.GameId == 1
                 select c;
 
                 db.Purchases.RemoveRange(selectedPurchase);
@@ -47,8 +47,7 @@ namespace Test
             {
                 _crudMethods.Create(1, 1, 2021, 03, 31);
                 var numberOfPurchasesBefore = db.Purchases.Count();
-                _crudMethods.Delete(1);
-                // Create a list of purchase table items and get the last item in the list
+                _crudMethods.Delete(100007);
                 var numberOfPurchasesAfter = db.Purchases.Count();
 
                 Assert.AreEqual(numberOfPurchasesBefore - 1, numberOfPurchasesAfter);
@@ -62,7 +61,7 @@ namespace Test
             {
                 var selectedPurchase =
                 from c in db.Purchases
-                where c.PurchaseId == 1
+                where c.GameId == 1
                 select c;
 
                 db.Purchases.RemoveRange(selectedPurchase);

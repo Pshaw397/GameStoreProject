@@ -17,12 +17,17 @@ namespace Test
             {
                 var selectedDevs =
                 from b in db.GameDevelopers
-                where b.GameId == 1
+                where b.GameId == 1 && b.DeveloperId == 1
+                select b;
+
+                var selectedDevs2 =
+                from b in db.GameDevelopers
+                where b.GameId == 1 && b.DeveloperId == 3
                 select b;
 
                 db.GameDevelopers.RemoveRange(selectedDevs);
+                db.GameDevelopers.RemoveRange(selectedDevs2);
                 db.SaveChanges();
-
             }
         }
 
@@ -45,10 +50,10 @@ namespace Test
             using (var db = new GameMarketContext())
             {
                 _crudMethods.Create(1, 1);
-                _crudMethods.Update(1, 1, 2);
+                _crudMethods.Update(1, 1, 3);
 
-                var updatedGameDev = db.GameDevelopers.Where(bg => bg.GameId == 1 && bg.DeveloperId == 2).FirstOrDefault();
-                Assert.AreEqual(2, updatedGameDev.DeveloperId);
+                var updatedGameDev = db.GameDevelopers.Where(bg => bg.GameId == 1 && bg.DeveloperId == 3).FirstOrDefault();
+                Assert.AreEqual(3, updatedGameDev.DeveloperId);
             }
         }
 
@@ -59,7 +64,7 @@ namespace Test
             {
                 _crudMethods.Create(1, 1);
                 var numberOfPurchasesBefore = db.GameDevelopers.Count();
-                _crudMethods.Delete(1);
+                _crudMethods.Delete(1, 1);
                 var numberOfPurchasesAfter = db.GameDevelopers.Count();
 
                 Assert.AreEqual(numberOfPurchasesBefore - 1, numberOfPurchasesAfter);
@@ -73,10 +78,16 @@ namespace Test
             {
                 var selectedDevs =
                 from b in db.GameDevelopers
-                where b.GameId == 1
+                where b.GameId == 1 && b.DeveloperId == 1
+                select b;
+
+                var selectedDevs2 =
+                from b in db.GameDevelopers
+                where b.GameId == 1 && b.DeveloperId == 3
                 select b;
 
                 db.GameDevelopers.RemoveRange(selectedDevs);
+                db.GameDevelopers.RemoveRange(selectedDevs2);
                 db.SaveChanges();
             }
         }

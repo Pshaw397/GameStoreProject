@@ -19,11 +19,11 @@ namespace GameStoreBusiness
             }
         }
 
-        public void Delete(int gameId)
+        public void Delete(int gameId, int genreID)
         {
             using (var db = new GameMarketContext())
             {
-                gameGenreUpdate = db.GameGenres.Where(c => c.GameId == gameId).FirstOrDefault();
+                gameGenreUpdate = db.GameGenres.Where(c => c.GameId == gameId && c.GenreId == genreID).FirstOrDefault();
                 db.GameGenres.Remove(gameGenreUpdate);
                 db.SaveChanges();
             }

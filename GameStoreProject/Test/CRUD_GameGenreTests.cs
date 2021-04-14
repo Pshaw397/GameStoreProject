@@ -17,8 +17,16 @@ namespace Test
             {
                 var selectedGames =
                 from b in db.GameGenres
-                where b.GameId == 1
+                where b.GameId == 1 && b.GenreId == 2
                 select b;
+
+                var selectedGames2 =
+                from b in db.GameGenres
+                where b.GameId == 1 && b.GenreId == 3
+                select b;
+
+                db.GameGenres.RemoveRange(selectedGames);
+                db.GameGenres.RemoveRange(selectedGames2);
 
                 db.GameGenres.RemoveRange(selectedGames);
                 db.SaveChanges();
@@ -31,7 +39,7 @@ namespace Test
             using (var db = new GameMarketContext())
             {
                 var numberOfGameGenresBefore = db.GameGenres.Count();
-                _crudMethods.Create(1, 1);
+                _crudMethods.Create(1, 2);
                 var numberOfGameGenresAfter = db.GameGenres.Count();
 
                 Assert.AreEqual(numberOfGameGenresBefore + 1, numberOfGameGenresAfter);
@@ -43,11 +51,11 @@ namespace Test
         {
             using (var db = new GameMarketContext())
             {
-                _crudMethods.Create(1, 1);
-                _crudMethods.Update(1, 1, 2);
+                _crudMethods.Create(1, 2);
+                _crudMethods.Update(1, 2, 3);
 
-                var updatedGameGenre = db.GameGenres.Where(bg => bg.GameId == 1 && bg.GenreId == 2).FirstOrDefault();
-                Assert.AreEqual(2, updatedGameGenre.GenreId);
+                var updatedGameGenre = db.GameGenres.Where(bg => bg.GameId == 1 && bg.GenreId == 3).FirstOrDefault();
+                Assert.AreEqual(3, updatedGameGenre.GenreId);
             }
         }
 
@@ -56,9 +64,9 @@ namespace Test
         {
             using (var db = new GameMarketContext())
             {
-                _crudMethods.Create(1, 1);
+                _crudMethods.Create(1, 2);
                 var numberOfRecordsBefore = db.GameGenres.Count();
-                _crudMethods.Delete(1);
+                _crudMethods.Delete(1, 2);
                 var numberOfRecordAfter = db.GameGenres.Count();
 
                 Assert.AreEqual(numberOfRecordsBefore - 1, numberOfRecordAfter);
@@ -72,10 +80,16 @@ namespace Test
             {
                 var selectedGames =
                 from b in db.GameGenres
-                where b.GameId == 1
+                where b.GameId == 1 && b.GenreId == 2
+                select b;
+
+                var selectedGames2 =
+                from b in db.GameGenres
+                where b.GameId == 1 && b.GenreId == 3
                 select b;
 
                 db.GameGenres.RemoveRange(selectedGames);
+                db.GameGenres.RemoveRange(selectedGames2);
                 db.SaveChanges();
             }
         }
