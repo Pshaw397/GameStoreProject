@@ -94,30 +94,8 @@ namespace GameStoreBusiness
         {
             developerList.Clear();
             genreList.Clear();
-            using (var db = new GameMarketContext())
-            {
-                gameUpdate = _services.GetGameByName(selectedItem);
-                var joinedTablesQuery =
-                    from g in db.Games
-                    join gd in db.GameDevelopers on g.GameId equals gd.GameId
-                    join d in db.Developers on gd.DeveloperId equals d.DeveloperId
-                    join gg in db.GameGenres on g.GameId equals gg.GameId
-                    join ge in db.Genres on gg.GenreId equals ge.GenreId
-                    where gd.GameId == gameUpdate.GameId
-                    select new { developerName = d.DeveloperName, genreName = ge.GenreName };
-
-                foreach (var item in joinedTablesQuery)
-                {
-                    if(developerList.Contains(item.developerName) == false)
-                    {
-                        developerList.Add(item.developerName);
-                    }
-                    if (genreList.Contains(item.genreName) == false)
-                    {
-                        genreList.Add(item.genreName);
-                    }
-                }
-            }
+            gameUpdate = _services.GetGameByName(selectedItem);
+            _services.SelectedGame(developerList, genreList, gameUpdate);
         }
     }
 }

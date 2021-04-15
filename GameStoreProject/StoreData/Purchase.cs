@@ -9,7 +9,7 @@ namespace StoreData
     {
         public decimal PurchaseId { get; set; }
         public decimal UserId { get; set; }
-        public decimal? GameId { get; set; }
+        public decimal GameId { get; set; }
         public DateTime? PurchaseDate { get; set; }
 
         public virtual Game Game { get; set; }

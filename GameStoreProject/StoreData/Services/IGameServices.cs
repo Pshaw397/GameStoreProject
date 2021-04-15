@@ -14,5 +14,6 @@ namespace StoreData.Services
         public List<string> GetLibraryGameList(User u);
         public void SaveGameChanges();
         public void RemoveGame(Game g);
+        public void SelectedGame(List<string> devList, List<string> genreList, Game Selected);
     }
 }

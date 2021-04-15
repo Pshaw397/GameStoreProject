@@ -3,6 +3,8 @@ using StoreData;
 using GameStoreBusiness;
 using System.Linq;
 using System;
+using Moq;
+using StoreData.Services;
 
 namespace Test
 {
@@ -30,28 +32,28 @@ namespace Test
         [Test]
         public void WhenANewPurhcaseIsAdded_TheNumberOfPurchaseIncreasesBy1()
         {
-            using (var db = new GameMarketContext())
-            {
-                var numberOfPurchasesBefore = db.Purchases.Count();
-                _crudMethods.Create(1, 1, 2021, 03, 31);
-                var numberOfPurchasesAfter = db.Purchases.Count();
+            var mockPurchaseService = new Mock<IPurchaseServices>(); ;
+            var newPurchase = new Purchase() { PurchaseId = 1, UserId = 1, GameId = 3 };
+            mockPurchaseService.Setup(ps => ps.GetPurchaseById(newPurchase.PurchaseId)).Returns(newPurchase);
+            _crudMethods = new CRUD_PurchaseMethods(mockPurchaseService.Object);
 
-                Assert.AreEqual(numberOfPurchasesBefore + 1, numberOfPurchasesAfter);
-            }
+            _crudMethods.Create(newPurchase.UserId, newPurchase.GameId, 2021, 04, 06);
+
+            mockPurchaseService.Verify(ps => ps.CreatePurchase(It.IsAny<Purchase>()), Times.Once);
         }
 
         [Test]
         public void WhenANewPurchaseIsDeleted_TheNumberOfPurchaseDecreasesBy1()
         {
-            using (var db = new GameMarketContext())
-            {
-                _crudMethods.Create(1, 1, 2021, 03, 31);
-                var numberOfPurchasesBefore = db.Purchases.Count();
-                _crudMethods.Delete(100007);
-                var numberOfPurchasesAfter = db.Purchases.Count();
+            var mockPurchaseService = new Mock<IPurchaseServices>(); ;
+            var newPurchase = new Purchase() { PurchaseId = 1, UserId = 1, GameId = 3, PurchaseDate = new DateTime(06 / 04 / 2021) };
+            mockPurchaseService.Setup(ps => ps.GetPurchaseById(newPurchase.PurchaseId)).Returns(newPurchase);
+            _crudMethods = new CRUD_PurchaseMethods(mockPurchaseService.Object);
 
-                Assert.AreEqual(numberOfPurchasesBefore - 1, numberOfPurchasesAfter);
-            }
+            _crudMethods.Delete(newPurchase.PurchaseId);
+
+            mockPurchaseService.Verify(ps => ps.RemovePurchase(It.IsAny<Purchase>()), Times.Once);
+
         }
 
         [TearDown]

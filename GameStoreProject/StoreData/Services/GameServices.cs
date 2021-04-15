@@ -61,5 +61,29 @@ namespace StoreData.Services
         {
             _context.SaveChanges();
         }
+
+        public void SelectedGame(List<string> devList, List<string> genreList, Game Selected)
+        {
+            var joinedTablesQuery =
+                from g in _context.Games
+                join gd in _context.GameDevelopers on g.GameId equals gd.GameId
+                join d in _context.Developers on gd.DeveloperId equals d.DeveloperId
+                join gg in _context.GameGenres on g.GameId equals gg.GameId
+                join ge in _context.Genres on gg.GenreId equals ge.GenreId
+                where gd.GameId == Selected.GameId
+                select new { developerName = d.DeveloperName, genreName = ge.GenreName };
+
+            foreach (var item in joinedTablesQuery)
+            {
+                if (devList.Contains(item.developerName) == false)
+                {
+                    devList.Add(item.developerName);
+                }
+                if (genreList.Contains(item.genreName) == false)
+                {
+                    genreList.Add(item.genreName);
+                }
+            }
+        }
     }
 }
